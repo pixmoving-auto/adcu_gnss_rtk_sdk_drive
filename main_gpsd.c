@@ -1,12 +1,12 @@
-# 作者: Teddy
-# 邮箱: teddy@pixmoving.net
-# 日期: 2025-12-20
-# 版本: V1.0
-# 描述:
-#  1. 针对优控的ADCU A06 Orin 平台，接入了中国移动的 RTK差分服务,并使用SDK进行访问;
-#  2. 该程序用于接收从Orin发送的RTCM数据,并将其写入到GNSS串口(/dev/ttyTHS0);
-#  3. 同时,该程序还可以接收从GNSS设备(/dev/ttyTHS0)发送的RTCM数据,并将其打印到终端;
-#  4. 该程序支持动态切换RTCM数据的发送和接收;
+// 作者: Teddy
+// 邮箱: teddy@pixmoving.net
+// 日期: 2025-12-20
+// 版本: V1.0
+// 描述:
+//  1. 针对优控的ADCU A06 Orin 平台，接入了中国移动的 RTK差分服务,并使用SDK进行访问;
+//  2. 该程序用于接收从Orin发送的RTCM数据,并将其写入到GNSS串口(/dev/ttyTHS0);
+//  3. 同时,该程序还可以接收从GNSS设备(/dev/ttyTHS0)发送的RTCM数据,并将其打印到终端;
+//  4. 该程序支持动态切换RTCM数据的发送和接收;
 
 #include <stdio.h>
 #include <stdlib.h>
