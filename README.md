@@ -21,6 +21,8 @@
 ├── run_rtk.sh         # 运行脚本
 ├── libcmcc_sdk.so     # 中国移动RTK SDK库
 ├── libapi.h           # SDK头文件
+├── package.xml        # ROS 2包元数据文件
+├── CMakeLists.txt     # CMake编译配置文件
 └── README.md          # 项目说明文档
 ```
 
@@ -53,7 +55,19 @@ sudo chmod 440 /etc/sudoers.d/gpsd_no_password
 
 ### 4. 编译程序
 
-使用以下命令编译程序：
+本项目支持两种编译方式：直接使用gcc编译或使用colcon build（推荐）。
+
+#### 4.1 使用colcon build编译（推荐）
+
+在Autoware工作空间根目录下运行：
+
+```bash
+colcon build --packages-select adcu_gnss_rtk_sdk_drive
+```
+
+编译后的可执行文件和库文件将安装到`install`目录中。
+
+#### 4.2 使用gcc直接编译
 
 ```bash
 gcc -o main_gpsd main_gpsd.c -L. -lcmcc_sdk -lpthread -lgps -lm
@@ -63,10 +77,16 @@ gcc -o main_gpsd main_gpsd.c -L. -lcmcc_sdk -lpthread -lgps -lm
 
 ### 运行脚本
 
-使用`run_rtk.sh`脚本启动程序：
+#### 使用源码目录中的脚本
 
 ```bash
 ./run_rtk.sh [串口设备] [波特率]
+```
+
+#### 使用colcon安装的脚本
+
+```bash
+ros2 run adcu_gnss_rtk_sdk_drive run_rtk.sh [串口设备] [波特率]
 ```
 
 ### 参数说明
@@ -151,6 +171,7 @@ lsof /dev/ttyTHS0
 - **邮箱**：teddy@pixmoving.net
 - **版本**：V1.0
 - **日期**：2025-12-20
+- **更新**：添加了对colcon build的支持 (2025-12-24)
 
 ## 版权声明
 
